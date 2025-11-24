@@ -1,34 +1,68 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Mi experimento CSS + Git</title>
     <style>
-      h1 {
-        color: white;
-        background-color: green;
-        border: 1px solid black;
-      }
+        h1 {
+            color: white;
+            background-color: green;
+            border: 1px solid black;
+        }
 
-      p {
-        color: aliceblue;
-        background-color: rgb(150, 44, 248);
-        border: 3px black solid;
-        font-size: 64px;
-      }
-		body{
-			background-color: #6203fc;
-		}
+        p {
+            color: aliceblue;
+            background-color: rgb(150, 44, 248);
+            border: 3px black solid;
+            font-size: 64px;
+        }
+
+        body {
+            background-color: #6203fc;
+            font-family: sans-serif;
+            user-select: none;
+        }
+
+        .kaomoji {
+            display: flex;
+            gap: 10px;
+            margin-left: 43%;
+        }
+
+        .eye {
+            display: inline-block;
+            width: 30px;
+            text-align: center;
+            transition: transform 0.05s linear;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>HOLA Git XD !</h1>
     <p>Este es mi primer ej. con CSS y Git</p>
 
     <h2>Subtítulo</h2>
     <p>Segundo elemento de parrafo</p>
-	<h1>¡HALA MADRID!</h1>
-	  <footer> Este es el pie de página ~ Año 2005 </footer>
-  </body>
+    <div class="kaomoji">
+        \ ( <span class="eye" id="eyeL">° </span>ᴗ
+        <span class="eye" id="eyeR"> °</span> ) /
+    </div>
+    <h1>¡HALA MADRID!</h1>
+    <footer>Este es el pie de página ~ Año 2005</footer>
+    <script>
+        const eyeL = document.getElementById("eyeL");
+        const eyeR = document.getElementById("eyeR");
+
+        document.addEventListener("mousemove", (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 10;
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+
+            eyeL.style.transform = `translate(${x}px, ${y}px)`;
+            eyeR.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
 </html>
